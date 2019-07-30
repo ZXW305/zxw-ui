@@ -19,7 +19,7 @@
   </transition>
 </template>
 <script>
-  import FTKMask from '../common/FTKMask.vue'
+  import Mask from '../common/Mask.vue'
   import ButtonGroup from '../common/ButtonGroup.vue'
   export default{
     mounted(){
