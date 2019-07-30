@@ -6,7 +6,7 @@ import Welcome from './Welcome.vue'
 import Head from './common/Head.vue'
 import ButtonGroup from './common/ButtonGroup.vue'
 import Form from './common/Form.vue'
-import FTKMask from './common/FTKMask.vue'
+import Mask from './common/Mask.vue'
 import FormItem from './common/FormItem.vue'
 import Dialog from './dialog/Dialog.vue'
 import TabBar from './nav/TabBar.vue'
@@ -16,7 +16,7 @@ const Components = {
     Head,
     ButtonGroup,
     Form,
-    FTKMask,
+    Mask,
     FormItem,
     Dialog,
     TabBar,
