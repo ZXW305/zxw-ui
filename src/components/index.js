@@ -3,8 +3,24 @@
  */
 import Vue from 'vue'
 import Welcome from './Welcome.vue'
+import Head from './common/Head.vue'
+import ButtonGroup from './common/ButtonGroup.vue'
+import Form from './common/Form.vue'
+import FTKMask from './common/FTKMask.vue'
+import FormItem from './common/FormItem.vue'
+import Dialog from './dialog/Dialog.vue'
+import TabBar from './nav/TabBar.vue'
+import Toast from './toast/Toast.vue'
 const Components = {
-    Welcome
+    Welcome,
+    Head,
+    ButtonGroup,
+    Form,
+    FTKMask,
+    FormItem,
+    Dialog,
+    TabBar,
+    Toast,
 }
 
 Object.keys(Components).forEach(name => {
