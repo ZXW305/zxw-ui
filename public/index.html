@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>zxw-ui</title>
+    <script>
+      let screenWidth = window.screen.width
+      let fontSize = screenWidth/3.75+'px'
+      document.getElementsByTagName('html')[0].style.fontSize = fontSize;
+    </script>
+    <style>
+      body{
+        font-size:.14rem;
+      }
+    </style>
   </head>
   <body>
     <noscript>

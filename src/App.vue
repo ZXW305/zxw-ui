@@ -2,15 +2,18 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <Welcome></Welcome>
+    <TabBar></TabBar>
   </div>
 </template>
 
 <script>
 import Welcome from './components/Welcome.vue'
+import TabBar from './components/nav/TabBar.vue'
 export default {
   name: 'app',
   components: {
     Welcome,
+    TabBar,
   }
 }
 </script>
