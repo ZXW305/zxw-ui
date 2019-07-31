@@ -1,7 +1,7 @@
 <template>
   <transition name="fdialog">
     <div v-show="fShow">
-      <Mask>
+      <div class="ftk-mui-mask">
         <div class="ftk-dialog-box">
           <div class="ftk-dialog">
             <div class="ftk-dialog-body">
@@ -14,13 +14,11 @@
             </div>
           </div>
         </div>
-      </Mask>
+      </div>
     </div>
   </transition>
 </template>
 <script>
-  import Mask from '../common/Mask.vue'
-  import ButtonGroup from '../common/ButtonGroup.vue'
   export default{
     mounted(){
       console.log(this.fShow)
@@ -54,8 +52,6 @@
       }
     },
     components:{
-      Mask,
-      ButtonGroup,
     },
     methods:{
       ftkBtnCancelClk(target){
@@ -81,6 +77,14 @@
   }
 </script>
 <style scoped>
+.ftk-mui-mask{
+   position:fixed;
+   left:0;
+   right:0;
+   top:0;
+   bottom:0;
+   background:rgba(0,0,0,.5);
+ }
 .ftk-dialog-box{
   position:fixed;
   left:0;
