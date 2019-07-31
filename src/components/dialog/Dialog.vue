@@ -1,7 +1,7 @@
 <template>
   <transition name="fdialog">
     <div v-show="fShow">
-      <FTKMask>
+      <Mask>
         <div class="ftk-dialog-box">
           <div class="ftk-dialog">
             <div class="ftk-dialog-body">
@@ -14,7 +14,7 @@
             </div>
           </div>
         </div>
-      </FTKMask>
+      </Mask>
     </div>
   </transition>
 </template>
@@ -54,7 +54,7 @@
       }
     },
     components:{
-      FTKMask,
+      Mask,
       ButtonGroup,
     },
     methods:{
