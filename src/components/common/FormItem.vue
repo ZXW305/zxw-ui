@@ -10,6 +10,7 @@
          <input type='text' v-if="item.inputType==='input'" v-model="vInput" class="input"/>
          <span v-if="item.inputType==='input' && vInput.length"  class="clear" @click="clear()"></span>
          <textarea v-if="item.inputType==='textarea'" class="input textarea" v-model="vInput"></textarea>
+         <div class="showText" v-if="item.inputType==='showText'">{{item.text}}</div>
          <slot></slot>
        </div>
       </li>
@@ -85,6 +86,9 @@ ul{
 .form-ul .inputContent{
   width:2.625rem;
   position:relative;
+}
+.inputContent .showText{
+  text-align:center;
 }
 .form-ul li .input{
   height: .25rem;
