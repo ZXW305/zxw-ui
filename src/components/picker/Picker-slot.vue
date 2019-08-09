@@ -23,7 +23,11 @@
       dataList:{
         type:Array,
         default:[],
-      }
+      },
+      keyIndex: {
+        type: Number,
+        default: 0,
+      },
     },
     data(){
       return {
@@ -55,15 +59,15 @@
           return false;
         }
       },
-      setMove(){
+      setMove(move, type, time){
         let updateMove = move + this.transformY;
         if (type === 'end') {
         // 限定滚动距离
           if (updateMove > 0) {
             updateMove = 0;
           }
-          if (updateMove < -(this.listData.length - 1) * this.lineSpacing) {
-            updateMove = -(this.listData.length - 1) * this.lineSpacing;
+          if (updateMove < -(this.dataList.length - 1) * this.lineSpacing) {
+            updateMove = -(this.dataList.length - 1) * this.lineSpacing;
           }
           // 设置滚动距离为lineSpacing的倍数值
           let endMove = Math.round(updateMove / this.lineSpacing) * this.lineSpacing;
@@ -106,6 +110,10 @@
         this.touchParams.startY = changedTouches.pageY;
         this.touchParams.startTime = event.timestamp || Date.now();
         this.transformY = this.scrollDistance;
+      },
+      setChooseValue(move) {
+        console.log(this.dataList[(Math.round(-move / this.lineSpacing))])
+        this.$emit('chooseItem', this.dataList[(Math.round(-move / this.lineSpacing))], this.keyIndex);
       },
       touchMove(event) {
         event.preventDefault();
