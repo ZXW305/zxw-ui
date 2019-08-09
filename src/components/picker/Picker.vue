@@ -1,6 +1,6 @@
 <template>
   <transition name="picker">
-    <div v-show="show" :class="{'picker-content':true,'picker-content-up':show,'picker-content-down':pickerHide}">
+    <div v-show="show" :class="{'picker':true,'picker-content-up':show,'picker-content-down':pickerHide}">
       <div class="btnGrp" @click="pickerUpOrDown"><span class="cancel">取消</span><span>{{title}}</span><span class="confirm">确认</span></div>
       <div class="picker-panel">
         <template v-for="list in dataList">
@@ -63,7 +63,7 @@ import pickerslot from './Picker-slot.vue'
   border:none;
   letter-spacing:5px
 }
-.picker-content{
+.picker{
   position:fixed;
   width:-webkit-fill-available;
   bottom:-2.1rem;
