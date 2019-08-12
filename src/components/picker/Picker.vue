@@ -4,7 +4,7 @@
       <div class="btnGrp" @click="pickerUpOrDown"><span class="cancel">取消</span><span>{{title}}</span><span class="confirm">确认</span></div>
       <div class="picker-panel">
         <template v-for="list in dataList">
-          <pickerslot :dataList="list"></pickerslot>
+          <pickerslot :dataList="list" @chooseItem="chooseItem"></pickerslot>
         </template>
       </div>
     </div>
@@ -42,6 +42,9 @@ import pickerslot from './Picker-slot.vue'
           this.pickerHide = false;
           this.$parent.show = false
         },1000)
+      },
+      chooseItem(item,index){
+        console.log(item,index)
       }
     }
   }
