@@ -1,6 +1,6 @@
 <template>
   <transition name="fdialog">
-    <div v-show="fShow">
+    <div v-show="show">
       <div class="ftk-mui-mask">
         <div class="ftk-dialog-box">
           <div class="ftk-dialog">
@@ -21,7 +21,7 @@
 <script>
   export default{
     mounted(){
-      console.log(this.fShow)
+      console.log(this.show)
     },
     computed:{
       cTitle(){
@@ -29,7 +29,7 @@
       }
     },
     props:{
-      fShow:{
+      show:{
         type:Boolean,
         default:true,
       },
@@ -84,6 +84,7 @@
    top:0;
    bottom:0;
    background:rgba(0,0,0,.5);
+   z-index:100;
  }
 .ftk-dialog-box{
   position:fixed;
@@ -149,7 +150,7 @@
   animation:btn_cancel_animation .2s;
 }
 .fdialog-enter-active, .fdialog-leave-active {
-  transition: opacity .6s;
+  transition: opacity 13ms;
 }
 .fdialog-enter, .fdialog-leave-to{
   opacity: 0;

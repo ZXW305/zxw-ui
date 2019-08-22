@@ -1,7 +1,7 @@
 <template>
   <transition name="picker">
     <div v-show="show" :class="{'picker':true,'picker-content-up':show,'picker-content-down':pickerHide}">
-      <div class="btnGrp" @click="pickerUpOrDown"><span class="cancel">取消</span><span>{{title}}</span><span class="confirm">确认</span></div>
+      <div class="btnGrp" @click="pickerUpOrDown"><span class="cancel" @click="pickerCancel">取消</span><span>{{title}}</span><span class="confirm" @click="pickerConfirm">确认</span></div>
       <div class="picker-panel">
         <template v-for="list in dataList">
           <pickerslot :dataList="list" @chooseItem="chooseItem"></pickerslot>
@@ -32,7 +32,9 @@ import pickerslot from './Picker-slot.vue'
     },
     data(){
       return {
-        pickerHide:false
+        pickerHide:false,
+        item:null,
+        index:null,
       }
     },
     methods:{
@@ -44,7 +46,8 @@ import pickerslot from './Picker-slot.vue'
         },1000)
       },
       chooseItem(item,index){
-        console.log(item,index)
+        this.item = item
+        this.index = index
       }
     }
   }

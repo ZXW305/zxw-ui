@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div :class="{'cheader':true,'left':textPosition && textPosition==='left'}"><span class="back" @click="back"></span>{{title}}</div>
+  <div :style="style">
+    <div :class="{'cheader':true,'left':textPosition && textPosition==='left'}" :style="{ 'fontSize': fontSize}"><span class="back" @click="back"></span>{{title}}</div>
     <slot name="optBtns">
     </slot>
   </div>
@@ -9,13 +9,30 @@
   export default{
     name:'header',
     props:{
-      title:String,
-      textPosition:String,
+      title:{
+        type:String,
+        default:'我有一个美丽的头部'
+      },
+      textPosition:{
+        type:String,
+        default:'center'
+      },
+      style:{
+        type:Object,
+        default:() => {}
+      },
+      fontSize:{
+        type:String,
+        default: () => '.14rem'
+      },
     },
     methods:{
       back(){
-        history.go(-1)
+        this.$emit('back')
       },
+    },
+    mounted(){
+      
     }
   }
 </script>
@@ -23,8 +40,7 @@
 <style scoped>
   .cheader{
     text-align:center;
-    font-size:.14rem;
-    height:.35rem;
+    height:.4rem;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -12,8 +12,6 @@
   export default{
     name: 'formItem',
     props:{
-      formItems:Array,
-      requestOpts:Object,
       btns:Array,
     },
     data(){

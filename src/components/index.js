@@ -10,6 +10,10 @@ import Head from './common/Head.vue'
 import ButtonGroup from './common/ButtonGroup.vue'
 import FormItem from './common/FormItem.vue'
 import Mask from './common/Mask.vue'
+import ActionSheet from './actionsheet/ActionSheet.vue'
+import Picker from './picker/Picker.vue'
+import Button from './button/Button.vue'
+import TextInput from './input/TextInput.vue'
 const Components = {
     Mask,
     Welcome,
@@ -19,6 +23,10 @@ const Components = {
     FormItem,
     ButtonGroup,
     TabBar,
+	ActionSheet,
+	Picker,
+	Button,
+	TextInput
 }
 
 Object.keys(Components).forEach(name => {

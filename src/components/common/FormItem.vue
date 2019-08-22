@@ -2,14 +2,14 @@
   <div>
     <ul class="form-ul" v-if="item">
       <li>
-       <span class="label"><i v-if="item.require" class="require">*</i>{{item.labelText}}</span>
+       <span class="label" :style="labelStyle"><i v-if="item.require" class="require">*</i>{{item.labelText}}</span>
        <div class="inputContent">
          <select v-if="item.inputType==='select'" v-model="vInput" class="select" @change="onChange(item.paramKey)">
            <option v-for="opt in item.opts" v-bind:value="opt.value">{{opt.text}}</option>
          </select>
-         <input type='text' v-if="item.inputType==='input'" v-model="vInput" class="input"/>
+         <input type='text' v-if="item.inputType==='input'" v-model="vInput" @blur="onBlur(pdata)" class="input"/>
          <span v-if="item.inputType==='input' && vInput.length"  class="clear" @click="clear()"></span>
-         <textarea v-if="item.inputType==='textarea'" class="input textarea" v-model="vInput"></textarea>
+         <textarea v-if="item.inputType==='textarea'" class="input textarea" v-model="vInput" @blur="onBlur(pdata)"></textarea>
          <div v-if="item.inputType==='showText'" :style="style">{{item.text}}</div>
          <slot></slot>
        </div>
@@ -45,16 +45,24 @@
       onChange(target){
         this.$emit('onChange',{target: target, value: this.formData[target]})
       },
+      onBlur(key){
+        this.$emit('onBlur',key)
+      }
     },
     computed:{
       style(){
         const { item } = this
         return {'text-align':item.textAlign ? item.textAlign : 'left'}
+      },
+      labelStyle(){
+        const { item } = this
+        const { style } = item
+        return style ? style : {}
       }
     },
   }
 </script>
-<style scope>
+<style scoped>
 ul{
   list-style:none;
   margin:0;

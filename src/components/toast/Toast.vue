@@ -48,9 +48,8 @@
     },
     mounted(){
       setTimeout(() => {
-        //this.hideToast()
+        this.hideToast()
       },(this.during*1000))
-      console.log(this.type)
     }
   }
 </script>
@@ -98,6 +97,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index:100;
   }
   .ftk-toast-box{
     background:rgba(0,0,0,.5);

@@ -116,6 +116,7 @@
         this.$emit('chooseItem', this.dataList[(Math.round(-move / this.lineSpacing))], this.keyIndex);
       },
       touchMove(event) {
+        console.log(this.currIndex)
         event.preventDefault();
         let changedTouches = event.changedTouches[0];
         this.touchParams.lastY = changedTouches.pageY;
